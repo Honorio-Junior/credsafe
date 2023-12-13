@@ -38,7 +38,7 @@
     </div>
     
 	<div class="div-cred">
-    	<img id="fotoCred" src="src/img/user.png" alt="imagem usuário" title="imagem usuário">
+    	<img id="fotoCred" src="src/img/person.svg" alt="imagem usuário" title="imagem usuário">
     	<div class="div-cred-info">
     		<label style="color: #17D100;">Nome</label>
     		<input class="info" type="text" id="nome" value="Cesar Augusto" readonly>
