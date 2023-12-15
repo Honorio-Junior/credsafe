@@ -47,7 +47,7 @@
 
         public function getByEmail($email): array
         {
-            $query = 'SELECT id, email, senha FROM clientes WHERE email = :email LIMIT 1';
+            $query = 'SELECT * FROM clientes WHERE email = :email LIMIT 1';
 
             $result = $this->conn->prepare($query);
             $result->bindParam(':email', $email);
@@ -56,6 +56,44 @@
             $clientes = $result->fetchALL();
 
             return $clientes;
+        }
+
+    }
+
+
+    class ModelPerfis extends conn
+    {
+        private $conn;
+
+        public function __construct()
+        {
+            $this->conn = $this->PDO();
+        }
+
+        public function getFuncoes(int $idCliente): array
+        {
+            $query = 'SELECT DISTINCT funcao FROM perfis WHERE idCliente = :idCliente';
+
+            $result = $this->conn->prepare($query);
+            $result->bindParam(':idCliente', $idCliente);
+            $result->execute();
+
+            $funcoes = $result->fetchALL();
+
+            return $funcoes;
+        }
+
+        public function getAll(int $idCliente): array
+        {
+            $query = 'SELECT * FROM perfis WHERE idCliente = :idCliente';
+
+            $result = $this->conn->prepare($query);
+            $result->bindParam(':idCliente', $idCliente);
+            $result->execute();
+
+            $perfis = $result->fetchALL();
+
+            return $perfis;
         }
 
     }

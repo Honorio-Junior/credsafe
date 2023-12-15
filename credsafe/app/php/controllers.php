@@ -7,19 +7,43 @@ class ControllerClientes
 
     public function validaCliente($cliente){
 
-        $ModelCliente = new ModelClientes();
-        $clienteEncontrado = $ModelCliente->getByEmail($cliente['email']);
+        $ModelClientes = new ModelClientes();
+        $clienteEncontrado = $ModelClientes->getByEmail($cliente['email']);
 
         if(!empty($clienteEncontrado)){
 
             if(password_verify($cliente['password'], $clienteEncontrado[0]['senha'])){
-                return 'Login realizado com sucesso!!!';
+                return $clienteEncontrado;
             }else{
-                return 'Email ou senha incorreto!';
+                return false;
             }
-        }
-        else{
-            return 'Email ou senha incorreto!';
+        }else{
+            return false;
         }
     }
+}
+
+class ControllerPerfis
+{
+
+    public function getFuncoes($idCliente)
+    {
+
+        $ModelPerfis = new ModelPerfis();
+
+        $funcoes = $ModelPerfis->getFuncoes($idCliente);
+
+        return $funcoes;
+
+    }
+
+    public function getAll($idCliente)
+    {
+        $ModelPerfis = new ModelPerfis();
+
+        $perfis = $ModelPerfis->getAll($idCliente);
+
+        return $perfis;
+    }
+
 }
