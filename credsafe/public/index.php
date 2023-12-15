@@ -72,7 +72,7 @@ echo '<script> const Perfis = ' . json_encode($perfis) . '</script>';
     </select>
 
     <!-- Campo de pesquisa  -->
-    <div class="input-group mx-auto mb-5" style="max-width: 25rem; width: 80%;">
+    <div class="input-group mx-auto mb-4" style="max-width: 25rem; width: 80%;">
         <input disabled id='inputNome' type="text" class="form-control" placeholder="Pesquisar por Todos" aria-label="Recipient's username with two button addons">
         <button disabled class="btn btn-outline-secondary" type="button">Buscar</button>
     </div>
