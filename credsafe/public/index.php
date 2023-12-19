@@ -43,7 +43,7 @@ echo '<script> const Perfis = ' . json_encode($perfis) . '</script>';
                 <ul class="navbar-nav">
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Admin - <?= $_SESSION['user'][0]['nome'] ?></a>
+                        <a class="nav-link" href="/admin.php">Admin - <?= $_SESSION['user'][0]['nome'] ?></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contato</a>

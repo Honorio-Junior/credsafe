@@ -46,4 +46,13 @@ class ControllerPerfis
         return $perfis;
     }
 
+    public function create($idCliente, $perfil)
+    {
+        $ModelPerfis = new ModelPerfis;
+
+        $result = $ModelPerfis->create($idCliente, $perfil);
+
+        return $result;
+    }
+
 }

@@ -96,6 +96,21 @@
             return $perfis;
         }
 
+        public function create(int $idCliente, array $perfil)
+        {
+            $query = 'INSERT INTO perfis (nome, bio, funcao, idCliente)
+                      VALUES (:nome, :bio, :funcao, :idCliente)';
+
+            $result = $this->conn->prepare($query);
+            $result->bindParam(':nome', $perfil['nome']);
+            $result->bindParam(':bio', $perfil['bio']);
+            $result->bindParam(':funcao', $perfil['funcao']);
+            $result->bindParam(':idCliente', $idCliente);
+            $r = $result->execute();
+
+            return $r;
+        }
+
     }
 
 ?>
